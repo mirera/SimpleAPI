@@ -8,7 +8,18 @@ from .serializers import InternSerializer
 
 # Create your views here.
 @api_view(['GET'])
-def getAllInterns(request):
-        interns = Intern.objects.all()
-        serializer = InternSerializer(interns, many=True)
-        return JsonResponse(serializer.data, safe=False)
+def urlOverview(request):
+        endPoints = {
+         "slackUsername": "enigma", 
+         "backend": True, 
+         "age": 28, 
+         "bio": "Hi, I am Mirera aka enigma, interested in reverse engineering and web application security"
+        }
+        return JsonResponse(endPoints)
+
+# @api_view(['GET'])
+# def getInternsDetails(request,pk):
+#         intern = Intern.objects.get(id=pk)
+#         serializer = InternSerializer(intern, many=False)
+#         return JsonResponse(serializer.data, safe=False)
+
